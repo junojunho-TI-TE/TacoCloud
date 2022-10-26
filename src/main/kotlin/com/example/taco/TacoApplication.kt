@@ -6,15 +6,15 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
-import tacos.Ingredient
-import tacos.TacoCloudApplication
+import com.example.taco.Ingredient
+import com.example.taco.TacoCloudApplication
 
 
 @SpringBootApplication
 class TacoCloudApplication{
 
 	@Bean
-	fun dataLoader(repo: tacos.data.IngredientRepository): CommandLineRunner {
+	fun dataLoader(repo: com.example.taco.data.IngredientRepository): CommandLineRunner {
 		return CommandLineRunner {
 			repo.deleteAll() // TODO: Quick hack to avoid tests from stepping on each other with constraint violations
 			repo.save(Ingredient("FLTO", "Flour Tortilla", Ingredient.Type.WRAP))

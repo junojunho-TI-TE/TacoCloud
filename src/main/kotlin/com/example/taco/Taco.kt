@@ -1,6 +1,7 @@
 package com.example.taco
 
 import lombok.Data
+import org.springframework.data.rest.core.annotation.RestResource
 import java.util.*
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.validation.constraints.Size;
 
 
 
+@RestResource(rel="tacos", path="tacos")
 @Data
 @Entity
 class Taco {

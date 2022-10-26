@@ -16,31 +16,31 @@ import javax.validation.constraints.Pattern
 class TacoOrder : Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private val id: Long? = null
-    private val placedAt = Date()
+    var id: Long? = null
+    val placedAt = Date()
 
     @NotBlank(message = "Delivery name is required")
-    private val deliveryName: String? = null
+    var deliveryName: String? = null
 
     @NotBlank(message = "Street is required")
-    private val deliveryStreet: String? = null
+    var deliveryStreet: String? = null
 
     @NotBlank(message = "City is required")
-    private val deliveryCity: String? = null
+    var deliveryCity: String? = null
 
     @NotBlank(message = "State is required")
-    private val deliveryState: String? = null
+    var deliveryState: String? = null
 
     @NotBlank(message = "Zip code is required")
-    private val deliveryZip: String? = null
-    private val ccNumber: @CreditCardNumber(message = "Not a valid credit card number") String? = null
+    var deliveryZip: String? = null
+    var ccNumber: @CreditCardNumber(message = "Not a valid credit card number") String? = null
 
     @Pattern(regexp = "^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$", message = "Must be formatted MM/YY")
-    private val ccExpiration: String? = null
-    private val ccCVV: @Digits(integer = 3, fraction = 0, message = "Invalid CVV") String? = null
+    var ccExpiration: String? = null
+    var ccCVV: @Digits(integer = 3, fraction = 0, message = "Invalid CVV") String? = null
 
     @OneToMany(cascade = arrayOf(CascadeType.ALL))
-    private val tacos: MutableList<Taco> = ArrayList()
+    var tacos: MutableList<Taco> = ArrayList()
 
     @ManyToOne
     public var user:User = User()

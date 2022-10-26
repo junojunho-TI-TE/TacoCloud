@@ -3,7 +3,6 @@ package com.example.taco.web
 import com.example.taco.Ingredient
 import com.example.taco.Taco
 import com.example.taco.TacoOrder
-import com.example.taco.Type
 import com.example.taco.data.IngredientRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -26,7 +25,7 @@ class DesignTacoController @Autowired constructor(
     fun addIngredientsToModel(model: Model) {
         val ingredients: MutableList<Ingredient> = ArrayList()
         ingredientRepo.findAll().forEach(Consumer { i: Ingredient -> ingredients.add(i) })
-        val types: Array<Type> = Type.values()
+        val types: Array<Ingredient.Type> = Ingredient.Type.values()
         for (type in types) {
             model.addAttribute(
                 type.toString().toLowerCase(),
@@ -63,7 +62,7 @@ class DesignTacoController @Autowired constructor(
     }
 
     private fun filterByType(
-        ingredients: List<Ingredient>, type: Type
+        ingredients: List<Ingredient>, type: Ingredient.Type
     ): Iterable<Ingredient> {
         return ingredients
             .stream()
