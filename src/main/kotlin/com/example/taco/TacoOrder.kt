@@ -16,8 +16,8 @@ import javax.validation.constraints.Pattern
 class TacoOrder : Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private val id: Long? = null
-    private val placedAt = Date()
+    var id: Long? = null
+    val placedAt = Date()
 
     @NotBlank(message = "Delivery name is required")
     var deliveryName: String? = null

@@ -2,3 +2,18 @@ spring:
   datasource:
     generate-unique-name: false
     name: tacocloud
+    url: jdbc:mysql://localhost/tacocloud
+    username: tacouser
+    password: tacopassword
+  logging:
+    file:
+      path: /var/logs/
+      file: TacoCloud.log
+    level:
+      root: WARN
+      org:
+        springframework:
+          security: DEBUG
+  data:
+    rest:
+      base-path: /data-api

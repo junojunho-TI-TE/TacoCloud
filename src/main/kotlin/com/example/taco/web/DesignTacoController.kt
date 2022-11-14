@@ -27,7 +27,7 @@ class DesignTacoController @Autowired constructor(
     fun addIngredientsToModel(model: Model) {
         val ingredients: MutableList<Ingredient> = ArrayList()
         ingredientRepo.findAll().forEach(Consumer { i: Ingredient -> ingredients.add(i) })
-        val types: Array<Type> = Type.values()
+        val types: Array<Ingredient.Type> = Ingredient.Type.values()
         for (type in types) {
             model.addAttribute(
                 type.toString().toLowerCase(),
@@ -71,7 +71,7 @@ class DesignTacoController @Autowired constructor(
     }
 
     private fun filterByType(
-        ingredients: List<Ingredient>, type: Type
+        ingredients: List<Ingredient>, type: Ingredient.Type
     ): Iterable<Ingredient> {
         return ingredients
             .stream()
