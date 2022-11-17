@@ -1,7 +1,7 @@
 package com.example.taco.data
 
 import com.example.taco.Taco
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.reactive.ReactiveCrudRepository
 
-interface TacoRepository:CrudRepository<Taco,Long> {
+interface TacoRepository: ReactiveCrudRepository<Taco, Long> {
 }
